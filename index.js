@@ -1,5 +1,6 @@
 import { McpServer } from '@modelcontextprotocol/server';
-import { StdioServerTransport } from '@modelcontextprotocol/server-stdio';
+import { StdioServerTransport } from '@modelcontextprotocol/server/stdio';
+import { z } from 'zod';
 
 const server = new McpServer({ name: 'Weather Data Fetcher', version: '1.0.0' });
 
@@ -23,7 +24,7 @@ server.registerTool(
     'getWeatherDataByCityName',
     {
         description: 'Fetch weather data by city name',
-        city: z.string()
+        inputSchema: z.object({ city: z.string() })
     },
     async ({ city }) => ({
         content: [{ type: 'text', text: `Fetching weather data for ${JSON.stringify(await fetchWeatherData(city))}` }]
