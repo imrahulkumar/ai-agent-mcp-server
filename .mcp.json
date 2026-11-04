@@ -1,0 +1,9 @@
+{
+	"mcpServers": {
+		"my-mcp-server-7907eb68": {
+			"type": "stdio",
+			"command": "node",
+			"args": ["/Users/rahkumar38/Movies/ai-agent-mcp-server/index.js"]
+		}
+	}
+}
